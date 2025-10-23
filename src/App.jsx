@@ -3,7 +3,6 @@ import { Navigation, Video, X, Sun, Moon } from "lucide-react";
 import CameraCard from "./components/CameraCard";
 import MapView from "./components/MapView";
 import PiP from "./components/PiP";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 function App() {
@@ -14,11 +13,11 @@ function App() {
 
   const [route, setRoute] = useState([]);
   const [showPiP, setShowPiP] = useState(true);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState("dark");
   const [mapKey, setMapKey] = useState(0); // Add key to force re-render
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   const handleRouteUpdate = (point) => {
@@ -27,15 +26,15 @@ function App() {
 
   const resetRoute = () => {
     setRoute([]);
-    setMapKey(prev => prev + 1); // Force MapView to remount
+    setMapKey((prev) => prev + 1); // Force MapView to remount
   };
 
   const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
-    <div className="app-wrapper">
+    <div>
       {/* Header */}
       <header className="app-header">
         <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
@@ -44,14 +43,21 @@ function App() {
             <h5 className="mb-0">Real-time Camera & Map Tracking</h5>
           </div>
           <div className="d-flex gap-2 flex-wrap">
-            <button 
-              className="btn btn-outline-primary btn-sm" 
+            <button
+              className="btn btn-outline-primary btn-sm"
               onClick={toggleTheme}
             >
-              {theme === 'light' ? <Moon size={14} className="me-1" /> : <Sun size={14} className="me-1" />}
-              {theme === 'light' ? 'Dark' : 'Light'}
+              {theme === "light" ? (
+                <Moon size={14} className="me-1" />
+              ) : (
+                <Sun size={14} className="me-1" />
+              )}
+              {theme === "light" ? "Dark" : "Light"}
             </button>
-            <button className="btn btn-outline-primary btn-sm" onClick={() => setShowPiP(!showPiP)}>
+            <button
+              className="btn btn-outline-primary btn-sm"
+              onClick={() => setShowPiP(!showPiP)}
+            >
               <Video size={14} className="me-1" />
               {showPiP ? "Hide PiP" : "Show PiP"}
             </button>
@@ -62,30 +68,31 @@ function App() {
           </div>
         </div>
       </header>
+      <div className="container-fluid">
+        {/* Main Content */}
+        <main className="row app-main">
+          {/* Cameras Section */}
+          <section className="col-md-4 cameras-section">
+            {sampleStreams.map((stream, idx) => (
+              <CameraCard
+                key={idx}
+                src={stream}
+                title={`Camera ${idx + 1}`}
+                index={idx}
+              />
+            ))}
+          </section>
 
-      {/* Main Content */}
-      <main className="content-wrapper">
-        {/* Cameras Section */}
-        <section className="cameras-section">
-          {sampleStreams.map((stream, idx) => (
-            <CameraCard 
-              key={idx} 
-              src={stream} 
-              title={`Camera ${idx + 1}`}
-              index={idx}
+          {/* Map Section */}
+          <div className="col-md-8">
+            <MapView
+              key={mapKey}
+              route={route}
+              onRouteUpdate={handleRouteUpdate}
             />
-          ))}
-        </section>
-
-        {/* Map Section */}
-        <div className="map-section">
-          <MapView 
-            key={mapKey} 
-            route={route} 
-            onRouteUpdate={handleRouteUpdate} 
-          />
-        </div>
-      </main>
+          </div>
+        </main>
+      </div>
 
       {showPiP && (
         <PiP src={sampleStreams[0]} onClose={() => setShowPiP(false)} />

@@ -61,7 +61,7 @@ function CameraCard({ src, title, index }) {
           <Video size={18} />
           <span className="fw-semibold">{title}</span>
         </div>
-        <span className={`badge ${isPlaying ? 'bg-success' : 'bg-secondary'}`}>
+        <span className={`badge ${isPlaying ? 'bg-success' : 'bg-warning'}`}>
           {isPlaying ? 'LIVE' : 'PAUSED'}
         </span>
       </div>
@@ -72,7 +72,6 @@ function CameraCard({ src, title, index }) {
           overflow: 'hidden', 
           borderRadius: '0.375rem', 
           backgroundColor: '#000',
-          height: isFullscreen ? 'calc(100vh - 180px)' : '280px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center'
@@ -103,7 +102,7 @@ function CameraCard({ src, title, index }) {
         
         <div className="mt-3">
           <div className="d-flex justify-content-between align-items-center gap-2 flex-wrap">
-            <div className="btn-group btn-group-sm" role="group">
+            <div className="btn-group btn-group-sm gap-2" role="group">
               <button 
                 className={`btn ${isPlaying ? 'btn-warning' : 'btn-success'}`}
                 onClick={togglePlay}
@@ -140,7 +139,7 @@ function CameraCard({ src, title, index }) {
               </button>
             </div>
             
-            <div className="btn-group btn-group-sm" role="group">
+            <div className="btn-group btn-group-sm gap-1" role="group">
               <button 
                 className="btn btn-outline-secondary" 
                 onClick={handleZoomOut}

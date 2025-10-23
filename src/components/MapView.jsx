@@ -164,7 +164,7 @@ function MapView({ route, onRouteUpdate }) {
       </MapContainer>
 
       {/* Status bar */}
-      <div className="position-absolute bottom-0 start-0 end-0 bg-white border-top p-2" style={{ zIndex: 1000 }}>
+      <div className="position-absolute bottom-0 start-0 end-0 map-footer border-top p-2" style={{ zIndex: 1000 }}>
         <div className="d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center gap-2">
             <Navigation size={16} />
@@ -175,7 +175,7 @@ function MapView({ route, onRouteUpdate }) {
           <div className="d-flex align-items-center gap-3">
             <div className="d-flex align-items-center gap-1">
               <span className="badge bg-primary">{manualRoute.length}</span>
-              <span className="small text-muted">Waypoints</span>
+              <span className="small x-mark">Waypoints</span>
             </div>
             <div className="d-flex align-items-center gap-1">
               <div style={{
@@ -184,7 +184,7 @@ function MapView({ route, onRouteUpdate }) {
                 borderRadius: '50%',
                 background: isDroneActive ? '#22c55e' : '#ef4444'
               }}></div>
-              <span className="small text-muted">Drone {isDroneActive ? 'Active' : 'Paused'}</span>
+              <span className="small x-mark">Drone {isDroneActive ? 'Active' : 'Paused'}</span>
             </div>
           </div>
         </div>

@@ -77,7 +77,7 @@ function PiP({ src, onClose }) {
           onMouseDown={handleMouseDownDrag}
         >
           <span className="small fw-semibold">Picture in Picture</span>
-          <button className="btn btn-sm btn-link text-white p-0" onClick={onClose}>
+          <button className="btn btn-sm btn-link x-mark p-0" onClick={onClose}>
             <X size={16} />
           </button>
         </div>
