@@ -1,16 +1,93 @@
-# React + Vite
+# 🚀 Real-Time Camera & Map Tracking
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **React-based real-time camera and map tracking dashboard** that combines live video streams, a dynamic map view (via Leaflet), and an interactive drone simulation.  
+It demonstrates a modern frontend architecture with **video control features**, **map route visualization**, and **PiP (Picture-in-Picture)** camera integration.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧠 Overview
 
-## React Compiler
+The app allows users to:
+- View **live camera streams** with playback controls (Play/Pause, Zoom, Fullscreen)
+- See **real-time drone movement** on a map
+- **Draw custom routes** interactively on the map
+- Track **route progress** with visual polylines
+- Manage **multiple camera feeds** and a **PiP view**
+- Reset routes and toggle drone flight dynamically
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Layer | Technology |
+|-------|-------------|
+| Frontend | **React 18+**, **Vite** |
+| Maps | **Leaflet** + **react-leaflet** |
+| Icons | **lucide-react** |
+| Animations | **Framer Motion** (optional) |
+| Styling | CSS / Tailwind / custom styles |
+
+---
+
+## 🧩 Features
+
+### 🎥 Camera System
+- Multiple sample video streams
+- **Play / Pause / Zoom / Fullscreen** controls
+- Live/Paused state indicator
+- Responsive layout for camera feeds
+
+### 🗺️ Map System
+- Built with **Leaflet + React Leaflet**
+- Real-time moving **drone marker**
+- **Draw routes manually** on map (click-to-add points)
+- Visual **route polyline** with animations
+- Drone simulation follows a smooth figure-8 pattern
+- Status display: *Idle*, *Drawing Mode*, *Following Route*
+
+### ✨ PiP Mode
+- Floating, draggable video preview (can be toggled on/off)
+
+---
+
+## 🧠 How It Works
+
+1. The app renders multiple camera cards (using sample video URLs).
+2. The **MapView** uses Leaflet to visualize a live map centered on a moving drone.
+3. The drone position is updated every few milliseconds to simulate flight.
+4. Users can **draw routes** on the map that the drone can follow.
+5. The **CameraCard** includes built-in controls for interaction:
+   - ▶️ Play/Pause
+   - 🔍 Zoom In/Out
+   - ⛶ Fullscreen
+
+---
+
+## 📂 Project Structure
+
+
+src/
+├── components/
+│ ├── CameraCard.jsx # Individual camera card with controls
+│ ├── MapView.jsx # Leaflet map with drone + route logic
+│ ├── DroneMarker.js # Custom drone/ship marker icon
+│ ├── MapUtilities.jsx # All functions related to MapView
+│ └── PiP.jsx # Picture-in-Picture floating video window
+├── App.jsx # Main app layout and logic
+├── App.css # Core styling
+└── main.jsx # React entry file
+
+
+## 🚀 Getting Started
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/Badrish96/realtime-camera-map-pip.git
+cd realtime-camera-map-tracking
+
+npm install
+
+npm run dev
+
+
+
