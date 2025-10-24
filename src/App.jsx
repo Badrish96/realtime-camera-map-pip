@@ -14,7 +14,7 @@ function App() {
   const [route, setRoute] = useState([]);
   const [showPiP, setShowPiP] = useState(true);
   const [theme, setTheme] = useState("dark");
-  const [mapKey, setMapKey] = useState(0); // Add key to force re-render
+  const [mapKey, setMapKey] = useState(0); 
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);

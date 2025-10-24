@@ -142,15 +142,13 @@ main.app-main {
   
   .cameras-section {
     height: auto;
-    max-height: 50vh; /* Take half the viewport height on mobile */
+    max-height: 50vh; 
   }
   
-  /* Ensure map container has height on mobile */
   .col-md-8 {
-    height: 50vh; /* Take remaining half of viewport height */
+    height: 50vh; 
   }
   
-  /* Ensure map fills its container */
   .leaflet-container {
     height: 100% !important;
   }
@@ -205,7 +203,6 @@ main.app-main {
   color: var(--text-primary);
 }
 
-/* Add these to your existing App.css */
 
 .fullscreen-card {
   position: fixed !important;
@@ -248,7 +245,6 @@ main.app-main {
   height: auto;
 }
 
-/* Ensure controls are visible in fullscreen */
 .fullscreen-card .btn-group {
   background: rgba(0, 0, 0, 0.7);
   padding: 0.5rem;

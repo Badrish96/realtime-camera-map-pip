@@ -6,7 +6,6 @@ import { Navigation, Pencil, Trash2, Pause, Play, Crosshair } from "lucide-react
 import { createDroneIcon, createCustomIcon } from "./DroneMarker";
 import { MapResizer, MapFollower, DrawHandler } from "./MapUtilities";
 
-// Fix for default marker icons in Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
