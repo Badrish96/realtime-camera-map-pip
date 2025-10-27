@@ -1,0 +1,295 @@
+:root {
+  /* Light Theme - Modern, Clean Colors */
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --header-bg: #ffffff;
+  --camera-card-bg: #ffffff;
+  --map-bg: #f1f5f9;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  /* Dark Theme - Softer, Eye-friendly Colors */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --header-bg: #1e293b;
+  --camera-card-bg: #1e293b;
+  --map-bg: #0f172a;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.leaflet-container {
+  font-family: inherit;
+}
+
+.leaflet-marker-icon {
+  border: none !important;
+  background: none !important;
+}
+
+.custom-marker,
+.drone-marker {
+  border: none !important;
+  background: none !important;
+}
+
+video {
+  transition: transform 0.2s ease;
+}
+
+.card-header {
+  user-select: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Button Animations */
+.btn {
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Leaflet Map Theme */
+.leaflet-container {
+  background: var(--map-bg);
+}
+
+/* Main Layout */
+.app-wrapper {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main.app-main {
+  height: calc(100vh - 72px);
+  overflow: hidden;
+  padding-top: 1rem;
+}
+
+.x-mark {
+  color: var(--text-primary);
+}
+
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+/* Badge Styling */
+.badge {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 767.98px) {
+  main.app-main {
+    height: auto;
+    min-height: calc(100vh - 72px);
+  }
+
+  .cameras-section {
+    height: auto;
+    max-height: 50vh;
+    padding: 1rem;
+  }
+
+  .col-md-8 {
+    height: 50vh;
+  }
+
+  .leaflet-container {
+    height: 100% !important;
+  }
+
+  .camera-card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .cameras-section {
+    padding: 0.75rem;
+  }
+
+  .camera-card .card-body {
+    padding: 1rem !important;
+  }
+
+  .btn-group .btn {
+    padding: 0.5rem;
+  }
+}
+
+/* Smooth Transitions */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+video,
+.video-container,
+.btn,
+.camera-card {
+  transition-property: all;
+}
+
+/* Focus States for Accessibility */
+.btn:focus,
+button:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* Card Improvements */
+.card {
+  background-color: var(--camera-card-bg);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.card-header {
+  background-color: var(--bg-secondary);
+  border-bottom-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+  .camera-button-group {
+    flex-direction: row;
+  }
+  
+  .camera-control-btn span {
+    display: none;
+  }
+  
+  .camera-control-btn {
+    padding: 0.625rem;
+  }
+  
+  .map-control-panel {
+    top: 0.75rem;
+    right: 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  .map-control-btn {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  main.app-main {
+    height: auto;
+    min-height: calc(100vh - 72px);
+    padding-top: 0.75rem;
+  }
+  
+  .cameras-section {
+    height: auto;
+    max-height: 50vh;
+    padding: 0 1rem 1rem 1rem;
+  }
+  
+  .map-section-wrapper {
+    height: 50vh;
+    padding: 0 1rem 1rem 1rem;
+  }
+  
+  .leaflet-container {
+    height: 100% !important;
+  }
+
+  .map-status-bar {
+    padding: 0.75rem;
+  }
+
+  .map-status-bar .container-fluid {
+    padding: 0;
+  }
+
+  .map-status-bar .fw-semibold {
+    font-size: 0.8rem;
+  }
+
+  .map-status-bar .small {
+    font-size: 0.75rem;
+  }
+}
+
+
+
+/* Loading Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

@@ -1,0 +1,146 @@
+.map-section-wrapper {
+  height: 100%;
+  padding: 0 1.5rem 1rem 0;
+}
+
+.map-container-card {
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  position: relative;
+  background: var(--camera-card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.leaflet-map {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.map-wrapper {
+  height: 100%;
+  background: var(--map-bg);
+}
+
+/* Map Status Bar */
+.map-status-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--camera-card-bg);
+  border-top: 2px solid var(--border-color);
+  padding: 1rem;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.map-status-bar .fw-semibold {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.map-status-bar .badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.map-status-bar .small {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+  animation: pulse-indicator 2s infinite;
+}
+
+@keyframes pulse-indicator {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Map Control Panel */
+.map-control-panel {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.map-control-btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  background: var(--camera-card-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  backdrop-filter: blur(10px);
+}
+
+.map-control-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--shadow-color);
+  border-color: #6366f1;
+  color: #6366f1;
+}
+
+.map-control-btn:active {
+  transform: translateY(0);
+}
+
+.map-control-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.map-control-btn.active {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border-color: #6366f1;
+}
+
+.map-control-btn.danger:hover:not(:disabled) {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.map-control-btn.success.active {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  border-color: #22c55e;
+}
+
+.map-control-btn.info.active {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  border-color: #06b6d4;
+}
+
+.map-wrapper {
+  height: 100%;
+  background: var(--map-bg);
+}
+
+.map-footer {
+  background: var(--header-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
