@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { X, Play, Maximize2 } from "lucide-react";
-import "./PiP.css";
+import "./pip.css";
 const thumbnails = import.meta.glob('../../assets/images/*.png', { eager: true });
 
 function PiP({ src, onClose, index, thumbnailCount }) {
