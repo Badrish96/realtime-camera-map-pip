@@ -10,7 +10,7 @@ import {
   Video,
   Circle,
 } from "lucide-react";
-import "./CameraCard.css";
+import "./cameraCard.css";
 
 function CameraCard({ src, title, index, thumbnailCount }) {
   const [isPlaying, setIsPlaying] = useState(false);
